@@ -16,3 +16,6 @@
   - Tags
   - Filters
   - Comments
+- models:
+  - make migration: `python manage.py makemigrations`
+  - migrate:  `python manage.py migrate`
