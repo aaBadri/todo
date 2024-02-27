@@ -1,2 +1,4 @@
 - create project: `django-admin startproject Todo`
 - run project: `python manage.py runserver`
+- migrate: `python manage.py migrate`
+- 
