@@ -19,3 +19,7 @@
 - models:
   - make migration: `python manage.py makemigrations`
   - migrate:  `python manage.py migrate`
+- admin:
+  - add model to admin.py
+  - add to admin page: admin.site.register(Todo)
+- 
