@@ -4,4 +4,5 @@ from django.shortcuts import HttpResponse
 # Create your views here.
 def home(request):
     # return HttpResponse("home page")
-    return render(request, "home.html")
+    person = {"name": "ali", "age": 28}
+    return render(request, "home.html", person)

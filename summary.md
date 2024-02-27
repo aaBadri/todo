@@ -11,3 +11,8 @@
   - add name.html
   - add name.html to settings.py: TEMPLATES -> 'DIRS': [BASE_DIR/"templates"]
   - return render(request, "name")
+- templates [https://docs.djangoproject.com/en/5.0/topics/templates/]:
+  - Variables
+  - Tags
+  - Filters
+  - Comments
