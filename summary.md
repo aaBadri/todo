@@ -5,4 +5,9 @@
 - create app: `python manage.py startapp home`
   - add urls.py file
   - add app to settings.py of Todo app
-- 
+- add url: add app base url to Todo app urls.py then add all urls to app urls.py
+- add template:
+  - create template folder in root
+  - add name.html
+  - add name.html to settings.py: TEMPLATES -> 'DIRS': [BASE_DIR/"templates"]
+  - return render(request, "name")
