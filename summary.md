@@ -22,4 +22,20 @@
 - admin:
   - add model to admin.py
   - add to admin page: admin.site.register(Todo)
-- 
+
+- CORS:
+  -  pipenv install django-cors-headers
+  -  Next update our django_project/settings.py file in three places:
+    • add corsheaders to the INSTALLED_APPS
+      "corsheaders",
+    • add CorsMiddleware above CommonMiddleWare in MIDDLEWARE
+      "corsheaders.middleware.CorsMiddleware",
+    • create a CORS_ALLOWED_ORIGINS config at the bottom of the file
+      CORS_ALLOWED_ORIGINS = (
+          "http://localhost:3000",
+          "http://localhost:8000",
+      )
+
+CSRF:
+  At the bottom of the settings.py file, next to CORS_ORIGIN_WHITELIST, add this additional line for React’s default local port of 3000:
+    CSRF_TRUSTED_ORIGINS = ["localhost:3000"]
