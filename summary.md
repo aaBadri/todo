@@ -57,5 +57,6 @@ CSRF:
         STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
       python manage.py collectstatic
   • install Gunicorn as the production web server
+    - pipenv install gunicorn
   • create requirements.txt, runtime.txt, and Procfile files
   • update the ALLOWED_HOSTS configuration
