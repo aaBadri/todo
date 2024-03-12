@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 black = "*"
 django-cors-headers = "*"
+whitenoise = "*"
 
 [dev-packages]
 

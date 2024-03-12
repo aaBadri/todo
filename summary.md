@@ -39,3 +39,23 @@
 CSRF:
   At the bottom of the settings.py file, next to CORS_ORIGIN_WHITELIST, add this additional line for React’s default local port of 3000:
     CSRF_TRUSTED_ORIGINS = ["localhost:3000"]
+
+
+- Depolyment: 
+  We will again deploy the Django API backend with Heroku. Our deployment checklist includes:
+  • configure static files and install WhiteNoise
+    mkdir static
+    pipenv install whitenoise
+    WhiteNoise must be added to django_project/settings.py in the following locations:
+      • whitenoise above django.contrib.staticfiles in INSTALLED_APPS 
+        "whitenoise.runserver_nostatic",
+      • WhiteNoiseMiddleware above CommonMiddleware
+        "whitenoise.middleware.WhiteNoiseMiddleware",
+      • STATICFILES_STORAGE configuration pointing to WhiteNoise under STATIC_URL = "/static/"
+        STATICFILES_DIRS = [BASE_DIR / "static"]
+        STATIC_ROOT = BASE_DIR / "staticfiles"
+        STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+      python manage.py collectstatic
+  • install Gunicorn as the production web server
+  • create requirements.txt, runtime.txt, and Procfile files
+  • update the ALLOWED_HOSTS configuration
