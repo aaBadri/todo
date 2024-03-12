@@ -59,4 +59,7 @@ CSRF:
   • install Gunicorn as the production web server
     - pipenv install gunicorn
   • create requirements.txt, runtime.txt, and Procfile files
+    python-3.10.3
+    web: gunicorn django_project.wsgi --log-file - > Procfile
+    pipenv requirements > requirements.txt
   • update the ALLOWED_HOSTS configuration
