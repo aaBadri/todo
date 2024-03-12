@@ -44,23 +44,28 @@ CSRF:
 - Depolyment: 
   We will again deploy the Django API backend with Heroku. Our deployment checklist includes:
   • configure static files and install WhiteNoise
-    mkdir static
-    pipenv install whitenoise
-    WhiteNoise must be added to django_project/settings.py in the following locations:
+    - mkdir static
+    - pipenv install whitenoise
+    - WhiteNoise must be added to django_project/settings.py in the following locations:
       • whitenoise above django.contrib.staticfiles in INSTALLED_APPS 
         "whitenoise.runserver_nostatic",
       • WhiteNoiseMiddleware above CommonMiddleware
         "whitenoise.middleware.WhiteNoiseMiddleware",
       • STATICFILES_STORAGE configuration pointing to WhiteNoise under STATIC_URL = "/static/"
-        STATICFILES_DIRS = [BASE_DIR / "static"]
-        STATIC_ROOT = BASE_DIR / "staticfiles"
-        STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-      python manage.py collectstatic
+        - STATICFILES_DIRS = [BASE_DIR / "static"]
+        - STATIC_ROOT = BASE_DIR / "staticfiles"
+        - STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+      - python manage.py collectstatic
   • install Gunicorn as the production web server
     - pipenv install gunicorn
   • create requirements.txt, runtime.txt, and Procfile files
-    python-3.10.3
-    web: gunicorn django_project.wsgi --log-file - > Procfile
-    pipenv requirements > requirements.txt
+    - python-3.10.3 > runtime.txt
+    - web: gunicorn django_project.wsgi --log-file - > Procfile
+    - pipenv requirements > requirements.txt
   • update the ALLOWED_HOSTS configuration
-    ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
+    - ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
+  • heroku 
+    - heroku login
+    - heroku create aabadri-todo
+    - git push heroku main
+    - heroku ps:scale web=1
