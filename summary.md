@@ -63,3 +63,4 @@ CSRF:
     web: gunicorn django_project.wsgi --log-file - > Procfile
     pipenv requirements > requirements.txt
   • update the ALLOWED_HOSTS configuration
+    ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
